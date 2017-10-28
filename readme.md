@@ -38,8 +38,8 @@ for (let i = 0; i < n; i++) {
 }
 
 // fit the model
-// note, the response and designMatrix will reused during the fitting
-// the values in those data structures should not be used by any other
+// note, the response and designMatrix will be reused during the fitting process
+// That means the values in those data structures should not be used by any other
 // functions
 const model = lm(response, designMatrix)
 
