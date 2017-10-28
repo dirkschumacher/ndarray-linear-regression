@@ -50,7 +50,7 @@ const model = fit(response, designMatrix)
 // the coeffients are here
 const coefficents = model.coefficents
 
-// you can use the resulting model object to fit new data
+// you can use the resulting model object to make predictions for new data
 const prediction = model.predict(newDataMatrix)
 ```
 
