@@ -21,6 +21,9 @@ The model is `mpg ~ hp + cyl`. I.e. can we predict miles per gallon by a linear 
 ```js
 const fit = require("ndarray-linear-regression")
 const mtcars = require("mtcars")
+const ndarray = require("ndarray")
+const pool = require("ndarray-scratch")
+
 const mpg = mtcars.map((x) => x.mpg)
 const n = mpg.length
 const m = 2
