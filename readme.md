@@ -20,6 +20,7 @@ An example on how to fit a linear regression model to the `mtcars` dataset.
 The model is `mpg ~ hp + cyl`. I.e. can we predict miles per gallon by a linear combination of `hp` and `cyl`.
 ```js
 const fit = require("ndarray-linear-regression")
+const mtcars = require("mtcars")
 const mpg = mtcars.map((x) => x.mpg)
 const n = mpg.length
 const m = 2
