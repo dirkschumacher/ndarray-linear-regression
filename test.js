@@ -6,7 +6,7 @@ const mtcars = require("mtcars")
 const ndarray = require("ndarray")
 const pool = require("ndarray-scratch")
 const unpack = require("ndarray-unpack")
-const round = require("lodash").round
+const round = require("lodash.round")
 
 test("fit mtcars", (t) => {
   const mpg = mtcars.map((x) => x.mpg)
