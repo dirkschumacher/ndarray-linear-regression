@@ -1,0 +1,37 @@
+{
+	"name": "ndarray-linear-regression",
+	"description": "Linear regression with ndarray",
+	"version": "0.1.0",
+	"main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"todo"
+	],
+	"author": "Dirk Schumacher <mail@dirk-schumacher.de>",
+	"homepage": "https://github.com/dirkschumacher/ndarray-linear-regression",
+	"repository": "dirkschumacher/ndarray-linear-regression",
+	"bugs": "https://github.com/dirkschumacher/ndarray-linear-regression/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {
+		"ndarray": "^1.0.18",
+		"ndarray-householder-qr": "^2.3.1",
+		"ndarray-scratch": "^1.2.0"
+	},
+	"devDependencies": {
+		"lodash": "^4.17.4",
+		"mtcars": "^0.1.0",
+		"ndarray-show": "^2.0.0",
+		"ndarray-unpack": "^1.0.0",
+		"tap-min": "^1.2.2",
+		"tape": "^4.8.0"
+	},
+	"scripts": {
+		"test": "node test.js | tap-min",
+		"prepublishOnly": "npm test"
+	}
+}
