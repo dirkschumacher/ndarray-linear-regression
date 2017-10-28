@@ -3,7 +3,7 @@
 
 
 [![npm version](https://img.shields.io/npm/v/ndarray-linear-regression.svg)](https://www.npmjs.com/package/ndarray-linear-regression)
-[![build status](https://img.shields.io/travis/derhuerst/todo-name.svg)](https://travis-ci.org/dirkschumacher/ndarray-linear-regression)
+[![build status](https://img.shields.io/travis/derhuerst/dirkschumacher/ndarray-linear-regression.svg)](https://travis-ci.org/dirkschumacher/ndarray-linear-regression)
 ![ISC-licensed](https://img.shields.io/github/license/dirkschumacher/ndarray-linear-regression.svg)
 
 ## Installing
