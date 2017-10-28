@@ -1,7 +1,7 @@
 "use strict"
 
 const test = require("tape")
-const lm = require(".")
+const fit = require(".")
 const mtcars = require("mtcars")
 const ndarray = require("ndarray")
 const pool = require("ndarray-scratch")
@@ -27,7 +27,7 @@ test("fit mtcars", (t) => {
   }
 
   // fit the model
-  const model = lm(response, designMatrix)
+  const model = fit(response, designMatrix)
   const coefficents = model.coefficents
   const prediction = model.predict(newDataMatrix)
 
@@ -82,5 +82,16 @@ test("fit mtcars", (t) => {
 
   arrayEqual(unpack(prediction).map(rm), predictedResponse.map(rm))
 
+  t.end()
+})
+
+test("it fails if rows <= columns", (t) => {
+  const n = 2
+  const m = 3
+  const response = pool.zeros([n])
+
+  const designMatrix = pool.zeros([n, m])
+
+  t.throws(() => fit(response, designMatrix), /Error/)
   t.end()
 })
