@@ -19,8 +19,13 @@
 		"node": ">=6"
 	},
 	"dependencies": {
+		"distributions": "^1.0.0",
 		"ndarray": "^1.0.18",
+		"ndarray-diagonal": "^1.0.0",
 		"ndarray-householder-qr": "^2.3.1",
+		"ndarray-inv": "github:dirkschumacher/ndarray-inv",
+		"ndarray-matrix-vector-product": "^1.0.0",
+		"ndarray-ops": "^1.2.2",
 		"ndarray-scratch": "^1.2.0"
 	},
 	"devDependencies": {
