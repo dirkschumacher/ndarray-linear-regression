@@ -174,7 +174,7 @@ const fit = (response, designMatrix) => {
   const residuals = pool.zeros([m])
   ops.sub(residuals, responseCopy, fittedValues)
 
-  // the fitted coefficents are now in the first m rows of 'response'
+  // the fitted coefficents are now in the first n rows of 'response'
   const coefficents = pool.zeros([n])
   for (let i = 0; i < n; i++) {
     coefficents.set(i, response.get(i))
