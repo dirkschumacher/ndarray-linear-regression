@@ -1,6 +1,6 @@
 # ndarray-linear-regression
 
-
+Fit linear regression models using QR decomposition on `ndarray` datastructures. Currently supports fitting, prediction intervals and standard errors for coefficients. Work in progress!
 
 [![npm version](https://img.shields.io/npm/v/ndarray-linear-regression.svg)](https://www.npmjs.com/package/ndarray-linear-regression)
 [![build status](https://img.shields.io/travis/dirkschumacher/ndarray-linear-regression.svg)](https://travis-ci.org/dirkschumacher/ndarray-linear-regression)
@@ -11,8 +11,6 @@
 ```shell
 npm install dirkschumacher/ndarray-linear-regression
 ```
-
-Work in progress!
 
 ## Usage
 
