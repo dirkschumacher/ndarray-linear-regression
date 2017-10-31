@@ -103,7 +103,7 @@ In order to make predictions, use the functions below:
 * `predictionInterval(alpha, newData)` - is a function with two parameters:
     * The first parameter `alpha`, a float between 0 and 1, is the so called significance level. A good choice for `alpha` is `0.05` :). The smaller this value, the larger your prediction intervals.
     * The second parameter is a new design matrix, similar to the function `predict`.
-    * It returns an object with three elements `fit`, `lowerLimit` and `upperLimit`. The first one is the expected value of your prediction and the other two are the lower and upper limits of your `(1 - alpha) %` [prediction intervals](https://robjhyndman.com/hyndsight/intervals/). This is especially handy when you want to give an estimate of uncertainty around your prediction.
+    * It returns an object with three elements `fit`, `lowerLimit` and `upperLimit`. The first one is the expected value of your prediction and the other two are the lower and upper limits of your `(1 - alpha)` [prediction intervals](https://robjhyndman.com/hyndsight/intervals/). This is especially handy when you want to give an estimate of uncertainty around your prediction.
 
 
 ## Contributing
