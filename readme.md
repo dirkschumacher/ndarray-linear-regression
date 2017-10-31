@@ -1,6 +1,6 @@
 # ndarray-linear-regression
 
-Fit linear regression models using QR decomposition on `ndarray` datastructures. Currently supports fitting, prediction intervals and standard errors for coefficients. Work in progress!
+Fit [linear regression](https://en.wikipedia.org/wiki/Linear_regression) models using [QR decomposition](https://en.wikipedia.org/wiki/QR_decomposition) on [ndarray](https://github.com/scijs/ndarray) datastructures. It currently supports fitting, prediction intervals and standard errors for coefficients. Work in progress!
 
 [![npm version](https://img.shields.io/npm/v/ndarray-linear-regression.svg)](https://www.npmjs.com/package/ndarray-linear-regression)
 [![build status](https://img.shields.io/travis/dirkschumacher/ndarray-linear-regression.svg)](https://travis-ci.org/dirkschumacher/ndarray-linear-regression)
@@ -16,6 +16,7 @@ npm install dirkschumacher/ndarray-linear-regression
 
 An example on how to fit a linear regression model to the `mtcars` dataset.
 The model is `mpg ~ hp + cyl`. I.e. can we predict miles per gallon by a linear combination of `hp` and `cyl`.
+
 ```js
 const fit = require("ndarray-linear-regression")
 const mtcars = require("mtcars")
@@ -57,6 +58,52 @@ const SEs = model.computeCoefficentSEs()
 // and also predictions intervals
 const predIntervals = model.predictionInterval(0.05, newDataMatrix)
 ```
+
+## API
+
+### Fit
+
+In order to fit a linear regression model you need to have two datastructures.
+
+* One is a response vector, an `ndarray` of floats of dimension `m`
+* The other one is a so called [design matrix](https://en.wikipedia.org/wiki/Design_matrix). It is encoded as an `ndarray`of
+  dimension `[m, n]`. So one row per element in your response. In machine learning,
+  the columns in that matrix are called "features".
+
+Using the design matrix, you try to find a linear model that can predict the values in the response vector.
+
+The following call shows how to fit a model:
+
+```js
+const model = fit(response, designMatrix)
+```
+
+The returned result is an object whose named elements are described in subsequent sections.
+
+It is very important to note that both the `response` and the `designMatrix` will
+be mutated during the fitting process. Other internal functions depend on the
+correctness of those values. This means that you need to make sure that the two
+data structures are not used elsewhere. The consequence is that the memory footprint is lower, but we have mutable state 🙈
+
+
+### Model diagnostics, interpretation and inference
+
+The following options are available to asses the fitted model:
+
+* `coefficients` - is an `ndarray` of dimension `[n]` with the estimated coefficients of the fitted model.
+* `residuals` - an `ndarray` of dimension `[m]` having the residuals. The residuals is the initial response vector minus the fitted values (i.e. the prediction on the training dataset).
+* `computeCoefficentSEs()` - the function computes the standard errors for the model `coefficents`. It returns and `ndarray` of dimension `[n]`. These values can be used to tests if your model variables have a statistical significant effect on the response.
+* `computeVcov()` - a function that computes the variance-covariance matrix of the model coefficients.
+
+### Prediction
+
+In order to make predictions, use the functions below:
+
+* `predict(newData)` - is a function that takes a new design matrix and uses the fitted model to make predictions on unseen data. It returns an `ndarray` of dimension `[m]`
+* `predictionInterval(alpha, newData)` - is a function with two parameter:
+    * The first parameter `alpha`, a float between 0 and 1, is the so called significance level. A good choice for `alpha` is `0.05` :). The smaller this value, the larger your prediction intervals.
+    * The second parameter is a new design matrix, similar to the function `predict`.
+    * It returns an object with three elements `fit`, `lowerLimit` and `upperLimit`. The first one is the expected value of your prediction and the other two are the lower and upper limits of your `(1 - alpha) %` [prediction intervals](https://robjhyndman.com/hyndsight/intervals/). This is especially handy when you want to give an estimate of uncertainty around your prediction.
 
 
 ## Contributing
