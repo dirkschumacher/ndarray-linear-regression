@@ -52,6 +52,12 @@ const coefficents = model.coefficents
 
 // you can use the resulting model object to make predictions for new data
 const prediction = model.predict(newDataMatrix)
+
+// you can compute the standard errors for the coefficents
+const SEs = model.computeCoefficentSEs()
+
+// and also predictions intervals
+const predIntervals = model.predictionInterval(newDataMatrix, 0.05)
 ```
 
 
