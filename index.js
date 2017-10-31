@@ -142,7 +142,7 @@ const fit = (response, designMatrix) => {
 
   // we need to make a copy of the data in order to compute
   // other statistical indicators
-  const responseCopy = pool.zeros([m, 1])
+  const responseCopy = pool.zeros([m])
   ops.assign(responseCopy, response)
 
   const Rd = pool.zeros([m])
@@ -151,7 +151,7 @@ const fit = (response, designMatrix) => {
 
   // fitted values
   const Q = pool.zeros([m, n])
-  const fittedValues = pool.zeros([m, 1])
+  const fittedValues = pool.zeros([m])
   qr.constructQ(designMatrix, Q)
   const Qt = Q.transpose(1, 0)
 
@@ -170,18 +170,18 @@ const fit = (response, designMatrix) => {
   mvp(fittedValues, Q_hat, responseCopy)
 
   // residuals
-  const residuals = pool.zeros([m, 1])
+  const residuals = pool.zeros([m])
   ops.sub(residuals, responseCopy, fittedValues)
 
   // the fitted coefficents are now in the first m rows of 'response'
   const coefficents = pool.zeros([n])
   for (let i = 0; i < n; i++) {
-    coefficents.set(i, response.get(i, 0))
+    coefficents.set(i, response.get(i))
   }
 
   // # standard errors of coefficents
   const df = m - n
-  let sigma2 = pool.zeros([m, 1])
+  let sigma2 = pool.zeros([m])
   ops.mul(sigma2, residuals, residuals)
   sigma2 = ops.sum(sigma2)
   sigma2 = sigma2 / df

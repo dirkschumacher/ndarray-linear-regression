@@ -27,7 +27,7 @@ const n = mpg.length
 const m = 2
 const hp = mtcars.map((x) => x.hp)
 const cyl = mtcars.map((x) => x.cyl)
-const response = ndarray(new Float64Array(mpg), [n, 1])
+const response = ndarray(new Float64Array(mpg), [n])
 
 const designMatrix = pool.zeros([n, 2])
 const newDataMatrix = pool.zeros([n, 2])
