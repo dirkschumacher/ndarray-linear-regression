@@ -24,16 +24,16 @@ const ndarray = require("ndarray")
 const pool = require("ndarray-scratch")
 
 const mpg = mtcars.map((x) => x.mpg)
-const n = mpg.length
-const m = 2
+const m = mpg.length
+const n = 2
 const hp = mtcars.map((x) => x.hp)
 const cyl = mtcars.map((x) => x.cyl)
-const response = ndarray(new Float64Array(mpg), [n])
+const response = ndarray(new Float64Array(mpg), [m])
 
-const designMatrix = pool.zeros([n, 2])
-const newDataMatrix = pool.zeros([n, 2])
-for (let i = 0; i < n; i++) {
-  for(let j = 0; j < m; j++) {
+const designMatrix = pool.zeros([m, n])
+const newDataMatrix = pool.zeros([m, n])
+for (let i = 0; i < m; i++) {
+  for(let j = 0; j < n; j++) {
     const value = j == 0 ? hp[i] : cyl[i]
     designMatrix.set(i, j, value)
     newDataMatrix.set(i, j, value)
