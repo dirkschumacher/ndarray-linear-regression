@@ -77,7 +77,7 @@ const newModel = (coefficents,
     return vcov
   }
 
-  const computePredictionInterval = (newData, alpha) => {
+  const computePredictionInterval = (alpha, newData) => {
     const m = newData.shape[0]
     const n = coefficents.shape[0]
     const pred = predictFun(newData)
@@ -92,6 +92,7 @@ const newModel = (coefficents,
     let studentT = distributions.Studentt(df)
     let multLower = studentT.inv(alpha / 2)
     let multUpper = studentT.inv(1 - alpha / 2)
+    let correction = sigma2
     for (let i = 0; i < m; i++) {
       variance = 0
       for (let j = 0; j < n; j++) {
@@ -101,7 +102,7 @@ const newModel = (coefficents,
         }
         variance += newData.get(i, j) * sum
       }
-      sePred = Math.sqrt(sigma2 + variance)
+      sePred = Math.sqrt(correction + variance)
 
       lowerLimit.set(i, pred.get(i) + multLower * sePred)
       upperLimit.set(i, pred.get(i) + multUpper * sePred)

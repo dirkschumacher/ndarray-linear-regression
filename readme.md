@@ -55,7 +55,7 @@ const prediction = model.predict(newDataMatrix)
 const SEs = model.computeCoefficentSEs()
 
 // and also predictions intervals
-const predIntervals = model.predictionInterval(newDataMatrix, 0.05)
+const predIntervals = model.predictionInterval(0.05, newDataMatrix)
 ```
 
 

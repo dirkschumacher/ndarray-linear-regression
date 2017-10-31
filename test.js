@@ -88,7 +88,7 @@ test("fit mtcars", (t) => {
 
 
   // check prediction interval
-  const predictionInterval = model.predictionInterval(newDataMatrix, 0.05)
+  const predictionInterval = model.predictionInterval(0.05, newDataMatrix)
   const expectedLowerPI = [-0.867362248583898,
                           -0.867362248583902,
                           -9.43497086005222,
