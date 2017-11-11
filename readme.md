@@ -1,5 +1,7 @@
 # ndarray-linear-regression
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dirkschumacher/ndarray-linear-regression.svg)](https://greenkeeper.io/)
+
 Fit [linear regression](https://en.wikipedia.org/wiki/Linear_regression) models using [QR decomposition](https://en.wikipedia.org/wiki/QR_decomposition) on [ndarray](https://github.com/scijs/ndarray) datastructures. It currently supports fitting, prediction intervals and standard errors for coefficients. Work in progress!
 
 [![npm version](https://img.shields.io/npm/v/ndarray-linear-regression.svg)](https://www.npmjs.com/package/ndarray-linear-regression)
