@@ -24,16 +24,16 @@ const ndarray = require("ndarray")
 const pool = require("ndarray-scratch")
 
 const mpg = mtcars.map((x) => x.mpg)
-const n = mpg.length
-const m = 2
+const m = mpg.length
+const n = 2
 const hp = mtcars.map((x) => x.hp)
 const cyl = mtcars.map((x) => x.cyl)
-const response = ndarray(new Float64Array(mpg), [n])
+const response = ndarray(new Float64Array(mpg), [m])
 
-const designMatrix = pool.zeros([n, 2])
-const newDataMatrix = pool.zeros([n, 2])
-for (let i = 0; i < n; i++) {
-  for(let j = 0; j < m; j++) {
+const designMatrix = pool.zeros([m, n])
+const newDataMatrix = pool.zeros([m, n])
+for (let i = 0; i < m; i++) {
+  for(let j = 0; j < n; j++) {
     const value = j == 0 ? hp[i] : cyl[i]
     designMatrix.set(i, j, value)
     newDataMatrix.set(i, j, value)
@@ -100,10 +100,10 @@ The following options are available to asses the fitted model:
 In order to make predictions, use the functions below:
 
 * `predict(newData)` - is a function that takes a new design matrix and uses the fitted model to make predictions on unseen data. It returns an `ndarray` of dimension `[m]`
-* `predictionInterval(alpha, newData)` - is a function with two parameter:
+* `predictionInterval(alpha, newData)` - is a function with two parameters:
     * The first parameter `alpha`, a float between 0 and 1, is the so called significance level. A good choice for `alpha` is `0.05` :). The smaller this value, the larger your prediction intervals.
     * The second parameter is a new design matrix, similar to the function `predict`.
-    * It returns an object with three elements `fit`, `lowerLimit` and `upperLimit`. The first one is the expected value of your prediction and the other two are the lower and upper limits of your `(1 - alpha) %` [prediction intervals](https://robjhyndman.com/hyndsight/intervals/). This is especially handy when you want to give an estimate of uncertainty around your prediction.
+    * It returns an object with three elements `fit`, `lowerLimit` and `upperLimit`. The first one is the expected value of your prediction and the other two are the lower and upper limits of your `(1 - alpha)` [prediction intervals](https://robjhyndman.com/hyndsight/intervals/). This is especially handy when you want to give an estimate of uncertainty around your prediction.
 
 ## Inspiration
 

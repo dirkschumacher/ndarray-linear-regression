@@ -36,7 +36,7 @@ const newModel = (coefficents,
     const m = fittedValues.shape[0]
     const n = coefficents.shape[0]
 
-    // ## (X*X')^-1 = R^-1 * (R')^-1
+    // ## (X'*X)^-1 = R^-1 * (R')^-1
     // here we actually calculate the inverse
     // which is not necessary, but no node module exists
     // yet to do that
@@ -174,7 +174,7 @@ const fit = (response, designMatrix) => {
   const residuals = pool.zeros([m])
   ops.sub(residuals, responseCopy, fittedValues)
 
-  // the fitted coefficents are now in the first m rows of 'response'
+  // the fitted coefficents are now in the first n rows of 'response'
   const coefficents = pool.zeros([n])
   for (let i = 0; i < n; i++) {
     coefficents.set(i, response.get(i))
