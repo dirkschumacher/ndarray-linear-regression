@@ -4,7 +4,9 @@
 	"version": "0.1.0",
 	"main": "index.js",
 	"files": [
-		"index.js"
+		"index.js",
+		"readme.md",
+		"license.md"
 	],
 	"keywords": [
 		"linear-regression",
@@ -23,7 +25,7 @@
 		"ndarray": "^1.0.18",
 		"ndarray-diagonal": "^1.0.0",
 		"ndarray-householder-qr": "^2.3.1",
-		"ndarray-inv": "github:dirkschumacher/ndarray-inv",
+		"ndarray-inv": "^0.2.0",
 		"ndarray-matrix-vector-product": "^1.0.0",
 		"ndarray-ops": "^1.2.2",
 		"ndarray-scratch": "^1.2.0"

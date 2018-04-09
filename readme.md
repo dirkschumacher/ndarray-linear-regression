@@ -1,6 +1,6 @@
 # ndarray-linear-regression
 
-Fit [linear regression](https://en.wikipedia.org/wiki/Linear_regression) models using [QR decomposition](https://en.wikipedia.org/wiki/QR_decomposition) on [ndarray](https://github.com/scijs/ndarray) datastructures. It currently supports fitting, prediction intervals and standard errors for coefficients. Work in progress!
+Fit [linear regression](https://en.wikipedia.org/wiki/Linear_regression) models using [QR decomposition](https://en.wikipedia.org/wiki/QR_decomposition) on [ndarray](https://github.com/scijs/ndarray) datastructures. It currently supports fitting, prediction intervals and standard errors for coefficients.
 
 [![npm version](https://img.shields.io/npm/v/ndarray-linear-regression.svg)](https://www.npmjs.com/package/ndarray-linear-regression)
 [![build status](https://img.shields.io/travis/dirkschumacher/ndarray-linear-regression.svg)](https://travis-ci.org/dirkschumacher/ndarray-linear-regression)
@@ -9,7 +9,7 @@ Fit [linear regression](https://en.wikipedia.org/wiki/Linear_regression) models 
 ## Installing
 
 ```shell
-npm install dirkschumacher/ndarray-linear-regression
+npm install ndarray-linear-regression
 ```
 
 ## Usage
@@ -105,6 +105,13 @@ In order to make predictions, use the functions below:
     * The second parameter is a new design matrix, similar to the function `predict`.
     * It returns an object with three elements `fit`, `lowerLimit` and `upperLimit`. The first one is the expected value of your prediction and the other two are the lower and upper limits of your `(1 - alpha) %` [prediction intervals](https://robjhyndman.com/hyndsight/intervals/). This is especially handy when you want to give an estimate of uncertainty around your prediction.
 
+## Inspiration
+
+The following links give more information and inspired the creation of this package. 
+
+* https://www.stat.wisc.edu/courses/st849-bates/lectures/Orthogonal.pdf
+* https://stackoverflow.com/questions/38109501/how-does-predict-lm-compute-confidence-interval-and-prediction-interval
+* https://genomicsclass.github.io/book/pages/qr_and_regression.html
 
 ## Contributing
 
