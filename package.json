@@ -21,7 +21,7 @@
 		"node": ">=6"
 	},
 	"dependencies": {
-		"distributions": "^1.0.0",
+		"distributions": "^2.1.0",
 		"ndarray": "^1.0.18",
 		"ndarray-diagonal": "^1.0.0",
 		"ndarray-householder-qr": "^2.3.1",
